@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For My Amazing Suvuu ❤️</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        love: {
+                            light: '#D8B4FE',  // Soft lavender
+                            DEFAULT: '#9333EA', // Vibrant purple
+                            dark: '#6B21A8',   // Deep purple
+                            accent: '#C084FC', // Light purple accent
+                        }
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'beat': 'beat 1s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        },
+                        beat: {
+                            '0%, 100%': { transform: 'scale(1)' },
+                            '25%': { transform: 'scale(1.1)' },
+                            '40%': { transform: 'scale(1)' },
+                            '60%': { transform: 'scale(1.1)' },
+                        }
+                    }
+                }
+            },
+            darkMode: 'class',
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Montserrat:wght@300;400;500;600&display=swap');
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-attachment: fixed;
+            background-size: 200% 200%;
+        }
+
+        .dark body {
+            background-image: none; /* Remove dark mode dots */
+        }
+
+        .love-title {
+            font-family: 'Dancing Script', cursive;
+        }
+
+        .love-text {
+            font-family: 'Dancing Script', cursive;
+        }
+
+        .heart-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.05;
+            pointer-events: none;
+        }
+
+        .heart-container {
+            position: relative;
+        }
+
+        /* Falling hearts animation */
+        .hearts {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .heart {
+            position: absolute;
+            opacity: 0;
+            animation: fall linear forwards;
+        }
+
+        @keyframes fall {
+            0% {
+                opacity: 0.8;
+                transform: translateY(-20px) rotate(0deg);
+            }
+            100% {
+                opacity: 0;
+                transform: translateY(100vh) rotate(360deg);
+            }
+        }
+    </style>
+</head>
+<body class="min-h-screen bg-gradient-to-br from-purple-300 via-purple-200 to-love-light dark:from-purple-900 dark:via-purple-800 dark:to-purple-600 transition-colors duration-300">
+    <!-- Color scheme detection -->
+    <script>
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            document.documentElement.classList.add('dark');
+        }
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
+            if (event.matches) {
+                document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+            }
+        });
+    </script>
+
+    <div class="hearts" id="hearts-container"></div>
+
+    <div class="container mx-auto px-4 py-10 flex flex-col items-center justify-center min-h-screen">
+        <div class="max-w-lg w-full mx-auto bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden relative 
+                    border border-love-accent dark:border-love-dark transition-all duration-300
+                    hover:shadow-xl">
+            
+            <div class="heart-bg" aria-hidden="true">
+                <svg width="100%" height="100%" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M50 90C50 90 85 65 85 35C85 25 75 15 65 15C55 15 50 25 50 25C50 25 45 15 35 15C25 15 15 25 15 35C15 65 50 90 50 90Z" 
+                          fill="#9333EA" /> <!-- Updated to purple -->
+                </svg>
+            </div>
+            
+            <div class="p-8">
+                <h1 class="love-title text-4xl md:text-5xl font-bold text-center mb-8 text-love-dark dark:text-love-light animate-float">
+                    Why I love Suvaa
+                </h1>
+                
+                <div class="heart-container bg-love-light dark:bg-gray-700 rounded-lg p-6 mb-8 min-h-56 flex items-center justify-center transition-all duration-500 hover:shadow-md">
+                    <p id="reason" class="love-text text-2xl md:text-3xl text-center text-gray-800 dark:text-white transition-opacity duration-300 ease-in-out">
+                        Click the button below to see a reason why I love you...
+                    </p>
+                </div>
+                
+                <div class="flex justify-center">
+                    <button id="generate-btn" 
+                            class="relative group overflow-hidden bg-love hover:bg-love-dark dark:bg-love-dark dark:hover:bg-love text-white font-semibold py-3 px-8 rounded-full shadow-md hover:shadow-lg transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-love focus:ring-opacity-50">
+                        <span class="flex items-center justify-center">
+                            <svg class="w-5 h-5 mr-2 text-white animate-beat" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clip-rule="evenodd"></path>
+                            </svg>
+                            <span>Show Me Why</span>
+                        </span>
+                        <span class="absolute inset-0 h-full w-full scale-0 rounded-full bg-white/30 transition-all duration-300 group-hover:scale-100 group-active:scale-100"></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <p class="text-sm text-gray-600 dark:text-gray-400 mt-6 text-center">
+            For my one and only suvuu ❤️
+        </p>
+    </div>
+
+    <script>
+        const reasons = [
+            "Your smile brightens even my darkest days.",
+            "The way your eyes light up when you're excited about something.",
+            "How you always know exactly what to say to make me feel better.",
+            "Your kindness to everyone you meet.",
+            "The cute way you scrunch your nose when you laugh.",
+            "How passionately you talk about things you love.",
+            "Your incredible strength during difficult times.",
+            "The way you dance when you think no one is watching.",
+            "How you make even ordinary moments feel special.",
+            "Your adorable concentration face when you're focused.",
+            "The sound of your laughter - it's my favorite melody.",
+            "How you remember the little details about things I love.",
+            "Your compassion for others that inspires me to be better.",
+            "The way you hold my hand and make me feel safe.",
+            "Your intelligence and how you see the world differently.",
+            "How beautiful you look first thing in the morning.",
+            "The comfort I feel just being in your presence.",
+            "Your determination to achieve your goals.",
+            "How you push me to be the best version of myself.",
+            "The way you listen so intently when I'm speaking.",
+            "Your thoughtful surprises that always make my day.",
+            "How you're not afraid to be your authentic self.",
+            "The tender way you care for me when I'm sick.",
+            "Your incredible sense of humor that keeps me laughing.",
+            "How you always find the silver lining in every situation.",
+            "The way you embrace my quirks and love me for them.",
+            "Your creativity and imagination that never cease to amaze me.",
+            "How you make our house feel like a home.",
+            "The way your face lights up when you see me after a long day.",
+            "Your patience when teaching me new things.",
+            "How you defend the people and causes you care about.",
+            "The way you challenge me to think differently.",
+            "Your adventurous spirit and willingness to try new things.",
+            "How you sing along to songs, even when you don't know the lyrics.",
+            "The peace I feel when falling asleep next to you.",
+            "Your thoughtfulness in remembering important dates and moments.",
+            "How you make ordinary days feel extraordinary.",
+            "The way you express your emotions so honestly.",
+            "Your wisdom and insightful perspective on life.",
+            "How you make me feel like the luckiest person in the world."
+        ];
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const reasonElement = document.getElementById('reason');
+            const generateButton = document.getElementById('generate-btn');
+            const heartsContainer = document.getElementById('hearts-container');
+            
+            let lastIndex = -1;
+            
+            function getRandomReason() {
+                let randomIndex;
+                do {
+                    randomIndex = Math.floor(Math.random() * reasons.length);
+                } while (randomIndex === lastIndex && reasons.length > 1);
+                
+                lastIndex = randomIndex;
+                return reasons[randomIndex];
+            }
+            
+            function createFallingHearts() {
+                for (let i = 0; i < 5; i++) {
+                    const heart = document.createElement('div');
+                    heart.classList.add('heart');
+                    heart.innerHTML = '❤️';
+                    heart.style.left = `${Math.random() * 100}%`;
+                    heart.style.fontSize = `${Math.random() * 15 + 10}px`;
+                    heart.style.animationDuration = `${Math.random() * 3 + 2}s`;
+                    heart.style.animationDelay = `${Math.random() * 0.5}s`;
+                    heartsContainer.appendChild(heart);
+                    
+                    setTimeout(() => {
+                        heart.remove();
+                    }, 5000);
+                }
+            }
+            
+            generateButton.addEventListener('click', function() {
+                reasonElement.style.opacity = '0';
+                
+                generateButton.classList.add('scale-95');
+                setTimeout(() => {
+                    generateButton.classList.remove('scale-95');
+                }, 200);
+                
+                createFallingHearts();
+                
+                setTimeout(() => {
+                    reasonElement.textContent = getRandomReason();
+                    reasonElement.style.opacity = '1';
+                }, 300);
+            });
+            
+            // Show first reason on load
+            setTimeout(() => {
+                reasonElement.textContent = getRandomReason();
+            }, 500);
+            
+            // Spacebar shortcut
+            document.addEventListener('keydown', function(event) {
+                if (event.code === 'Space' && document.activeElement !== generateButton) {
+                    event.preventDefault();
+                    generateButton.click();
+                }
+            });
+        });
+    </script>
+</body>
+</html>
