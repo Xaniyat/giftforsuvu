@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For My Precious Suvuu ❤️</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        love: {
+                            light: '#FFD6E7',  // Baby pink
+                            DEFAULT: '#FF85B3', // Soft pink
+                            dark: '#FF5C8D',   // Medium pink
+                            accent: '#FFB6C1',  // Light pink accent
+                        }
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'beat': 'beat 1s ease-in-out infinite',
+                        'pulse-slow': 'pulse 3s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        },
+                        beat: {
+                            '0%, 100%': { transform: 'scale(1)' },
+                            '25%': { transform: 'scale(1.1)' },
+                            '40%': { transform: 'scale(1)' },
+                            '60%': { transform: 'scale(1.1)' },
+                        }
+                    }
+                }
+            },
+            darkMode: 'class',
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Montserrat:wght@300;400;500;600&display=swap');
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-attachment: fixed;
+            background-size: 200% 200%;
+        }
+
+        .dark body {
+            background-image: none;
+        }
+
+        .love-title {
+            font-family: 'Dancing Script', cursive;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .love-text {
+            font-family: 'Dancing Script', cursive;
+            line-height: 1.6;
+        }
+
+        .heart-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.05;
+            pointer-events: none;
+        }
+
+        .heart-container {
+            position: relative;
+            backdrop-filter: blur(4px);
+        }
+
+        /* Falling hearts animation */
+        .hearts {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .heart {
+            position: absolute;
+            opacity: 0;
+            animation: fall linear forwards;
+            color: #FF5C8D;
+        }
+
+        @keyframes fall {
+            0% {
+                opacity: 0.8;
+                transform: translateY(-20px) rotate(0deg);
+            }
+            100% {
+                opacity: 0;
+                transform: translateY(100vh) rotate(360deg);
+            }
+        }
+
+        /* Glow effect for container */
+        .glow-box {
+            box-shadow: 0 0 20px rgba(255, 182, 193, 0.3);
+        }
+    </style>
+</head>
+<body class="min-h-screen bg-gradient-to-br from-pink-50 via-pink-100 to-love-light dark:from-pink-900 dark:via-pink-800 dark:to-pink-700 transition-colors duration-300">
+     
+    <audio controls autoplay loop>
+  <source src="https://github.com/Xaniyat/giftforsuvu/blob/bba03a4fac21b0d7e2d2c65e760b289d464416d5/The%20Greatest%20Showman%20-%20Rewrite%20the%20Stars%20(Piano%20Cover%20by%20Riyandi%20Kusuma).mp3" type="audio/mp3">
+  Your browser does not support the audio element.
+   </audio>
+    <!-- Color scheme detection -->
+    <script>
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            document.documentElement.classList.add('dark');
+        }
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
+            if (event.matches) {
+                document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+            }
+        });
+    </script>
+
+    <div class="hearts" id="hearts-container"></div>
+
+    <div class="container mx-auto px-4 py-10 flex flex-col items-center justify-center min-h-screen">
+        <div class="max-w-lg w-full mx-auto bg-white/90 dark:bg-pink-900/90 rounded-xl shadow-lg overflow-hidden relative 
+                    border-2 border-love-accent dark:border-pink-700 transition-all duration-300
+                    hover:shadow-xl glow-box">
+            
+            <div class="heart-bg" aria-hidden="true">
+                <svg width="100%" height="100%" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M50 90C50 90 85 65 85 35C85 25 75 15 65 15C55 15 50 25 50 25C50 25 45 15 35 15C25 15 15 25 15 35C15 65 50 90 50 90Z" 
+                          fill="#FF85B3" />
+                </svg>
+            </div>
+            
+            <div class="p-8">
+                <h1 class="love-title text-4xl md:text-5xl font-bold text-center mb-8 text-love-dark dark:text-pink-100 animate-float">
+                    Why I'll love you eternally
+                </h1>
+                
+                <div class="heart-container bg-love-light/80 dark:bg-pink-800/80 rounded-lg p-6 mb-8 min-h-56 flex items-center justify-center transition-all duration-500 hover:shadow-md border border-love-accent/30">
+                    <p id="reason" class="love-text text-2xl md:text-3xl text-center text-gray-800 dark:text-pink-50 transition-opacity duration-300 ease-in-out">
+                        Click the heart to discover why...
+                    </p>
+                </div>
+                
+                <div class="flex justify-center">
+                    <button id="generate-btn" 
+                            class="relative group overflow-hidden bg-love hover:bg-love-dark dark:bg-pink-700 dark:hover:bg-pink-600 text-white font-semibold py-3 px-8 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-love focus:ring-opacity-50 animate-pulse-slow">
+                        <span class="flex items-center justify-center">
+                            <svg class="w-6 h-6 mr-2 text-white animate-beat" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clip-rule="evenodd"></path>
+                            </svg>
+                            <span class="text-lg">Show Me Why</span>
+                        </span>
+                        <span class="absolute inset-0 h-full w-full scale-0 rounded-full bg-white/30 transition-all duration-300 group-hover:scale-100 group-active:scale-100"></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <p class="text-sm text-pink-600 dark:text-pink-300 mt-6 text-center flex items-center">
+            <svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clip-rule="evenodd"></path>
+            </svg>
+            For my suvuu , my one and only
+        </p>
+    </div>
+
+    <script>
+        const reasons = [
+            "Your smile makes my heart skip a beat every time",
+            "The way your eyes sparkle when you're happy",
+            "How you make ordinary moments feel magical",
+            "Your laugh is my favorite sound in the world",
+            "The kindness you show to everyone around you",
+            "How you always know how to comfort me",
+            "Your beautiful mind and the way you think",
+            "The warmth I feel when you hold my hand",
+            "How you make me feel safe and loved",
+            "Your adorable little habits that I've memorized",
+            "The way you dance when no one's watching",
+            "How you remember all the little things about me",
+            "Your strength inspires me every day",
+            "The way you look at me like I'm your whole world",
+            "How you make even bad days better",
+            "Your passion for the things you love",
+            "The cute face you make when you're concentrating",
+            "How you've changed my life for the better",
+            "Your beautiful soul shines through everything you do",
+            "The way you understand me without words",
+            "How you always put others before yourself",
+            "Your courage in facing challenges",
+            "The way you make our house feel like home",
+            "How you've taught me what love really means",
+            "Your patience when I'm being difficult",
+            "The way you smell like comfort and happiness",
+            "How you believe in me more than I believe in myself",
+            "Your silly side that only I get to see",
+            "The way you fit perfectly in my arms",
+            "How you make every day an adventure",
+            "Your lips feel like home when they touch mine",
+            "The way you've become my best friend",
+            "How you accept all of me, flaws included",
+            "Your voice is my favorite melody",
+            "The way you make me want to be a better person",
+            "How you've painted my world with color",
+            "Your heart is more beautiful than I ever imagined",
+            "The way you love me unconditionally",
+            "How you've made my life complete"
+        ];
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const reasonElement = document.getElementById('reason');
+            const generateButton = document.getElementById('generate-btn');
+            const heartsContainer = document.getElementById('hearts-container');
+            
+            let lastIndex = -1;
+            
+            function getRandomReason() {
+                let randomIndex;
+                do {
+                    randomIndex = Math.floor(Math.random() * reasons.length);
+                } while (randomIndex === lastIndex && reasons.length > 1);
+                
+                lastIndex = randomIndex;
+                return reasons[randomIndex];
+            }
+            
+            function createFallingHearts() {
+                for (let i = 0; i < 8; i++) {
+                    const heart = document.createElement('div');
+                    heart.classList.add('heart');
+                    heart.innerHTML = '❤️';
+                    heart.style.left = `${Math.random() * 100}%`;
+                    heart.style.fontSize = `${Math.random() * 20 + 12}px`;
+                    heart.style.animationDuration = `${Math.random() * 4 + 3}s`;
+                    heart.style.animationDelay = `${Math.random() * 0.5}s`;
+                    heartsContainer.appendChild(heart);
+                    
+                    setTimeout(() => {
+                        heart.remove();
+                    }, 7000);
+                }
+            }
+            
+            generateButton.addEventListener('click', function() {
+                reasonElement.style.opacity = '0';
+                
+                generateButton.classList.add('scale-95');
+                setTimeout(() => {
+                    generateButton.classList.remove('scale-95');
+                }, 200);
+                
+                createFallingHearts();
+                
+                setTimeout(() => {
+                    reasonElement.textContent = getRandomReason();
+                    reasonElement.style.opacity = '1';
+                }, 300);
+            });
+            
+            // Show first reason on load
+            setTimeout(() => {
+                reasonElement.textContent = getRandomReason();
+            }, 500);
+            
+            // Spacebar shortcut
+            document.addEventListener('keydown', function(event) {
+                if (event.code === 'Space' && document.activeElement !== generateButton) {
+                    event.preventDefault();
+                    generateButton.click();
+                }
+            });
+        });
+    </script>
+</body>
+</html>
